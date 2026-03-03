@@ -26,11 +26,17 @@ type (
 		XMLName           xml.Name `xml:"Body"`
 		GetResponse       AuthorizationOccurrence
 		EnumerateResponse common.EnumerateResponse
+		EnumerateUsers 	  EnumerateUserAclEntries
 		PullResponse      PullResponse
 		SetAdminResponse  SetAdminAclEntryEx_OUTPUT
 	}
 	SetAdminAclEntryEx_OUTPUT struct {
 		ReturnValue ReturnValue `xml:"ReturnValue"`
+	}
+	EnumerateUserAclEntries struct {
+    	TotalCount   int   `xml:"TotalCount"`
+    	HandlesCount int   `xml:"HandlesCount"`
+    	Handles      []int `xml:"Handles"`
 	}
 	AuthorizationOccurrence struct {
 		XMLName                 xml.Name       `xml:"AMT_AuthorizationService"`
